@@ -42,7 +42,7 @@ export default function ExpensesPage({ expenses, members, onEdit, onDelete, onGo
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ fontSize: "15px", fontWeight: 700, marginBottom: "3px" }}>{exp.description}</div>
                     <div style={{ fontSize: "12px", color: "var(--text-muted)" }}>
-                      {MEMBER_AVATARS[pi >= 0 ? pi % MEMBER_AVATARS.length : 0]} {p?.name || "?"} 付 · {exp.splitMode === "equal" ? `${exp.splitAmong?.length || members.length}人均分` : "自訂"}
+                      {p?.emoji || MEMBER_AVATARS[pi >= 0 ? pi % MEMBER_AVATARS.length : 0]} {p?.name || "?"} 付 · {exp.splitMode === "equal" ? `${exp.splitAmong?.length || members.length}人均分` : "自訂"}
                     </div>
                   </div>
                   <div style={{ fontSize: "17px", fontWeight: 800, letterSpacing: "-0.02em" }}>${exp.amount.toLocaleString()}</div>

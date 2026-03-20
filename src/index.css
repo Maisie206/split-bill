@@ -6,7 +6,7 @@
   --bg: #f8f9fa; --card: #ffffff; --subtle: #f1f3f5;
   --border: #e9ecef; --border-focus: #868e96;
   --text: #212529; --text-sec: #495057; --text-muted: #adb5bd;
-  --accent: #212529;
+  --accent: #212529; --accent-light: #e9ecef;
   --positive: #2b8a3e; --negative: #c92a2a;
   --radius: 12px; --radius-sm: 8px;
   --font: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;

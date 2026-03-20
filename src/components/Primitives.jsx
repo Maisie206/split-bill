@@ -83,13 +83,14 @@ export function Label({ children }) {
   );
 }
 
-export function Avatar({ index, size = 36 }) {
+export function Avatar({ index, emoji, size = 36 }) {
+  const display = emoji || MEMBER_AVATARS[index % MEMBER_AVATARS.length];
   return (
     <div style={{
       width: size, height: size, borderRadius: size * 0.3,
       background: "var(--subtle)", border: "1px solid var(--border)",
       display: "flex", alignItems: "center", justifyContent: "center",
       fontSize: size * 0.5, flexShrink: 0,
-    }}>{MEMBER_AVATARS[index % MEMBER_AVATARS.length]}</div>
+    }}>{display}</div>
   );
 }

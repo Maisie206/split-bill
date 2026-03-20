@@ -37,7 +37,7 @@ export default function SettlePage({ expenses, members }) {
             return (
               <Card key={m.id} delay={100 + i * 30}>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", padding: "10px 14px" }}>
-                  <Avatar index={i} size={32} />
+                  <Avatar emoji={m.emoji} index={i} size={32} />
                   <span style={{ flex: 1, fontSize: "14px", fontWeight: 700 }}>{m.name}</span>
                   <span style={{
                     fontSize: "15px", fontWeight: 800, letterSpacing: "-0.02em",
@@ -67,7 +67,7 @@ export default function SettlePage({ expenses, members }) {
                 <Card key={i} delay={240 + i * 40}>
                   <div style={{ display: "flex", alignItems: "center", gap: "10px", padding: "14px 16px" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                      <Avatar index={fi >= 0 ? fi : 0} size={28} />
+                      <Avatar emoji={fm?.emoji} index={fi >= 0 ? fi : 0} size={28} />
                       <span style={{ fontWeight: 700, fontSize: "13px" }}>{fm?.name || "?"}</span>
                     </div>
                     <div style={{
@@ -79,7 +79,7 @@ export default function SettlePage({ expenses, members }) {
                       <div style={{ flex: 1, height: "1px", background: "var(--border)" }} />
                     </div>
                     <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                      <Avatar index={ti >= 0 ? ti : 0} size={28} />
+                      <Avatar emoji={tm?.emoji} index={ti >= 0 ? ti : 0} size={28} />
                       <span style={{ fontWeight: 700, fontSize: "13px" }}>{tm?.name || "?"}</span>
                     </div>
                     <div style={{

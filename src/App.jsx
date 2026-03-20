@@ -7,7 +7,7 @@ import AddExpensePage from "./components/AddExpensePage";
 import ExpensesPage from "./components/ExpensesPage";
 import SettlePage from "./components/SettlePage";
 import {
-  createTrip, updateTripName, addMember, removeMember,
+  createTrip, updateTripName, addMember, removeMember, updateMember,
   addExpense, updateExpense, deleteExpense,
   useTrip, useExpenses,
 } from "./lib/firestore";
@@ -138,6 +138,7 @@ export default function App() {
           members={members}
           onAddMember={(name) => addMember(tripId, members, name)}
           onRemoveMember={(id) => removeMember(tripId, members, id)}
+          onUpdateMember={(id, changes) => updateMember(tripId, members, id, changes)}
         />
       )}
       {tab === "add" && (

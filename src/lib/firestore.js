@@ -35,8 +35,21 @@ export async function updateMembers(tripId, members) {
 
 // ── Add member ──
 export async function addMember(tripId, currentMembers, name) {
-  const newMember = { id: uid(), name };
+  const usedEmojis = currentMembers.map((m) => m.emoji).filter(Boolean);
+  const allEmojis = ["🐻","🐱","🦊","🐸","🐰","🐧","🐶","🦄"];
+  const available = allEmojis.filter((e) => !usedEmojis.includes(e));
+  const emoji = available[0] || allEmojis[currentMembers.length % allEmojis.length];
+  const newMember = { id: uid(), name, emoji };
   const updated = [...currentMembers, newMember];
+  await updateDoc(doc(db, "trips", tripId), { members: updated });
+  return updated;
+}
+
+// ── Update member (name / emoji) ──
+export async function updateMember(tripId, currentMembers, memberId, changes) {
+  const updated = currentMembers.map((m) =>
+    m.id === memberId ? { ...m, ...changes } : m
+  );
   await updateDoc(doc(db, "trips", tripId), { members: updated });
   return updated;
 }

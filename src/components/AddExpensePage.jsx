@@ -53,7 +53,7 @@ export default function AddExpensePage({ members, onSave, editing, onCancel }) {
         <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
           {members.map((m, i) => (
             <Chip key={m.id} active={payer === m.id} onClick={() => setPayer(m.id)}>
-              {MEMBER_AVATARS[i % MEMBER_AVATARS.length]} {m.name}
+              {m.emoji || MEMBER_AVATARS[i % MEMBER_AVATARS.length]} {m.name}
             </Chip>
           ))}
         </div>
@@ -88,7 +88,7 @@ export default function AddExpensePage({ members, onSave, editing, onCancel }) {
           <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
             {members.map((m, i) => (
               <Chip key={m.id} active={among.includes(m.id)} onClick={() => toggleAmong(m.id)}>
-                {MEMBER_AVATARS[i % MEMBER_AVATARS.length]} {m.name}
+                {m.emoji || MEMBER_AVATARS[i % MEMBER_AVATARS.length]} {m.name}
               </Chip>
             ))}
           </div>
@@ -110,7 +110,7 @@ export default function AddExpensePage({ members, onSave, editing, onCancel }) {
             {members.map((m, i) => (
               <div key={m.id} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "6px", minWidth: "72px" }}>
-                  <Avatar index={i} size={28} />
+                  <Avatar emoji={m.emoji} index={i} size={28} />
                   <span style={{ fontSize: "13px", fontWeight: 700 }}>{m.name}</span>
                 </div>
                 <div style={{ flex: 1 }}>
